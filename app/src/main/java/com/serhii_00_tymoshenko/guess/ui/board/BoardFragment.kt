@@ -52,8 +52,8 @@ class BoardFragment : Fragment() {
             }
         }
         viewModel.getBoardCards().observe(viewLifecycleOwner) { cards ->
-            cardAdapter.submitList(cards)
-            cardAdapter.notifyDataSetChanged()
+            cardAdapter.submitList(cards.toList())
+
         }
     }
 
