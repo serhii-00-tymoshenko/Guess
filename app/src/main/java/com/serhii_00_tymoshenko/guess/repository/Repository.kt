@@ -1,10 +1,12 @@
 package com.serhii_00_tymoshenko.guess.repository
 
-import com.serhii_00_tymoshenko.hackathon.quiz.models.Card
-import com.serhii_00_tymoshenko.hackathon.quiz.models.CardState
+import com.serhii_00_tymoshenko.guess.models.Card
+import com.serhii_00_tymoshenko.guess.models.CardState
 
 class Repository(private val numberOfPairs: Int) {
-    private val boardCards by lazy { generateRandomSequence(numberOfPairs).toMutableList() }
+    private val boardCards by lazy {
+        generateRandomSequence(numberOfPairs).toMutableList()
+    }
 
     private fun generateRandomSequence(numberOfPairs: Int): List<Card> {
         val tempCards = initList(numberOfPairs)

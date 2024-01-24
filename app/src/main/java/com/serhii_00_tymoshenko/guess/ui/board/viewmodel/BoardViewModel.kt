@@ -1,12 +1,13 @@
 package com.serhii_00_tymoshenko.guess.ui.board.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.serhii_00_tymoshenko.guess.models.Card
+import com.serhii_00_tymoshenko.guess.models.CardState
 import com.serhii_00_tymoshenko.guess.repository.Repository
-import com.serhii_00_tymoshenko.hackathon.quiz.models.Card
-import com.serhii_00_tymoshenko.hackathon.quiz.models.CardState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -58,6 +59,8 @@ class BoardViewModel(private val repository: Repository) : ViewModel() {
         val tempCards = _openedCards.value!!.toMutableList()
         tempCards.add(card.copy(state = CardState.OPENED))
         _openedCards.value = tempCards
+
+        getCards()
     }
 
     private fun changeState(card: Card, state: CardState) {

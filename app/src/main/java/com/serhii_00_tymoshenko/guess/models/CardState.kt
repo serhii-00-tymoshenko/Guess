@@ -1,4 +1,4 @@
-package com.serhii_00_tymoshenko.hackathon.quiz.models
+package com.serhii_00_tymoshenko.guess.models
 
 enum class CardState {
     CLOSED, OPENED, PAIRED

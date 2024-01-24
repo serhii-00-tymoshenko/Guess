@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.serhii_00_tymoshenko.guess.R
 import com.serhii_00_tymoshenko.guess.databinding.ItemCardBinding
-import com.serhii_00_tymoshenko.hackathon.quiz.models.Card
-import com.serhii_00_tymoshenko.hackathon.quiz.models.CardState
+import com.serhii_00_tymoshenko.guess.models.Card
+import com.serhii_00_tymoshenko.guess.models.CardState
 
 class CardAdapter(
     private val callback: (Card) -> Unit,
@@ -58,8 +58,9 @@ class CardAdapter(
             override fun areItemsTheSame(oldItem: Card, newItem: Card) =
                 oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Card, newItem: Card) =
-                oldItem === newItem
+            override fun areContentsTheSame(oldItem: Card, newItem: Card): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 }

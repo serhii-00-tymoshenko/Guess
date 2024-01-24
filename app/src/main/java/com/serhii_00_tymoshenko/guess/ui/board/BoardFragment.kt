@@ -53,7 +53,6 @@ class BoardFragment : Fragment() {
         }
         viewModel.getBoardCards().observe(viewLifecycleOwner) { cards ->
             cardAdapter.submitList(cards.toList())
-
         }
     }
 
